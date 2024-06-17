@@ -1,4 +1,5 @@
 from os import system
+lista_trabajador=[]
 def menu_principal():
     opciones = {
         '1': ('registrar trabajador', reg_trabajador),
@@ -16,7 +17,7 @@ def generar_menu(opciones, opcion_salida):
         mostrar_menu(opciones)
         opcion = leer_opcion(opciones)
         ejecutar_opcion(opcion, opciones)
-        print() # se imprime una línea en blanco para clarificar la salida por pantalla
+        #print() # se imprime una línea en blanco para clarificar la salida por pantalla
 
 def mostrar_menu(opciones):
     print('Seleccione una opción:')
@@ -34,7 +35,12 @@ def ejecutar_opcion(opcion, opciones):
 
 def reg_trabajador():
     print('Has elegido la opción 1')
-
+    nombre_trabajador=(input("ingrese el nombre y apellido de l trabajador: "))
+    cargo_trabajador=(input("ingrese cargo del trabajador: "))
+    sueldo_trabajador=(int(input("ingrese el sueldo bruto del trabajador: ")))
+    nombre_trabajador={"nombre":nombre_trabajador, "cargo":cargo_trabajador, "sueldo": sueldo_trabajador, "descuento tranajador": (sueldo_trabajador*7)/100, "liquido a pagar": sueldo_trabajador-((sueldo_trabajador*7)/100)}
+    lista_trabajador.append(nombre_trabajador)
+    
 
 def listar_trabajador():
     print('Has elegido la opción 2')
@@ -49,3 +55,7 @@ def salir():
 
 
 menu_principal()
+
+
+
+print(lista_trabajador)
